@@ -1,4 +1,7 @@
 {
+  "name": "learn-java-format",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "format": "prettier --loglevel warn --ignore-unknown --write \"**/*\"",
     "posttest": "npm run format"
