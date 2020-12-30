@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>MyDesignPattern</artifactId>
+    <artifactId>app_weather</artifactId>
+    <name>001_天气预报</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

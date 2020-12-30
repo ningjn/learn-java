@@ -12,6 +12,7 @@
         <module>MyDesignPattern</module>
         <module>MyBase</module>
         <module>AppHttpClient</module>
+        <module>app_weather</module>
     </modules>
     <dependencies>
         <dependency>
