@@ -2,22 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>learn</artifactId>
+        <groupId>lambda</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>lambda</groupId>
-    <artifactId>learn</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>000_java学习</name>
-
-    <modules>
-        <module>app_weather</module>
-        <module>app_design_pattern</module>
-        <module>app_base</module>
-    </modules>
-
-    <dependencies>
-    </dependencies>
+    <artifactId>app_base</artifactId>
+    <name>应用_基础知识</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
