@@ -4,8 +4,10 @@ import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.net.http.HttpResponse;
 import java.util.function.Supplier;
-import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author ningth
+ */
 public class JsonBodyHandler<W>
 	implements HttpResponse.BodyHandler<Supplier<W>> {
 

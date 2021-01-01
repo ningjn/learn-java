@@ -2,6 +2,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author ningth
+ */
 @NoArgsConstructor
 @Data
 public class LivesItem {

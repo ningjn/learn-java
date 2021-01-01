@@ -3,6 +3,9 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.time.Duration;
 
+/**
+ * @author ningth
+ */
 public class MyWeather {
 
 	/**

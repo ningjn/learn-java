@@ -17,6 +17,14 @@
     </modules>
 
     <dependencies>
+        <!--my self lib-->
+        <dependency>
+            <groupId>lambda</groupId>
+            <artifactId>app_weather</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

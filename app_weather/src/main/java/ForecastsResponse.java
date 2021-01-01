@@ -3,12 +3,12 @@ import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author ningth
+ */
 @NoArgsConstructor
 @Data
-public class LivesResponse {
-
-	@JsonProperty("lives")
-	private List<LivesItem> lives;
+public class ForecastsResponse {
 
 	@JsonProperty("count")
 	private String count;
@@ -22,14 +22,14 @@ public class LivesResponse {
 	@JsonProperty("info")
 	private String info;
 
+	@JsonProperty("forecasts")
+	private List<ForecastsItem> forecasts;
+
 	@Override
 	public String toString() {
 		return (
-			"LivesResponse{" +
-			"lives = '" +
-			lives +
-			'\'' +
-			",count = '" +
+			"ForecastsResponse{" +
+			"count = '" +
 			count +
 			'\'' +
 			",infocode = '" +
@@ -40,6 +40,9 @@ public class LivesResponse {
 			'\'' +
 			",info = '" +
 			info +
+			'\'' +
+			",forecasts = '" +
+			forecasts +
 			'\'' +
 			"}"
 		);

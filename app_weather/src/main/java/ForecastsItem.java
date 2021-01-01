@@ -3,6 +3,9 @@ import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author ningth
+ */
 @NoArgsConstructor
 @Data
 public class ForecastsItem {
