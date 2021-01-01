@@ -78,6 +78,28 @@ class LivesObj {
 		@JsonProperty("reporttime")
 		private String reporttime;
 	}
+
+	@Override
+	public String toString() {
+		return (
+			"LivesObj{" +
+			"status='" +
+			status +
+			'\'' +
+			", count='" +
+			count +
+			'\'' +
+			", info='" +
+			info +
+			'\'' +
+			", infocode='" +
+			infocode +
+			'\'' +
+			", lives=" +
+			lives +
+			'}'
+		);
+	}
 }
 
 @NoArgsConstructor
@@ -248,5 +270,8 @@ public class App {
 		if (response != null && response.statusCode() == 200) {
 			System.out.println(response.body());
 		}
+
+		LivesObj livesObj = new LivesObj();
+		System.out.println(livesObj.toString());
 	}
 }
