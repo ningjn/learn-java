@@ -6,4 +6,6 @@
 
 # 学习使用 jackson 库解析 json
 
-# 。。。。
+# 学习 java JDBC
+
+#
