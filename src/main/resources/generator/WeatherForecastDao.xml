@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.WeatherForecastDao">
+  <resultMap id="BaseResultMap" type="generate.WeatherForecast">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="ad_code" jdbcType="VARCHAR" property="adCode" />
+    <result column="report_time" jdbcType="TIMESTAMP" property="reportTime" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="week" jdbcType="VARCHAR" property="week" />
+    <result column="day_weather" jdbcType="VARCHAR" property="dayWeather" />
+    <result column="night_weather" jdbcType="VARCHAR" property="nightWeather" />
+    <result column="day_temp" jdbcType="VARCHAR" property="dayTemp" />
+    <result column="night_temp" jdbcType="VARCHAR" property="nightTemp" />
+    <result column="day_wind" jdbcType="VARCHAR" property="dayWind" />
+    <result column="night_wind" jdbcType="VARCHAR" property="nightWind" />
+    <result column="day_power" jdbcType="VARCHAR" property="dayPower" />
+    <result column="night_power" jdbcType="VARCHAR" property="nightPower" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, province, city, ad_code, report_time, "date", week, day_weather, night_weather, 
+    day_temp, night_temp, day_wind, night_wind, day_power, night_power
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "weather_forecast"
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from "weather_forecast"
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.WeatherForecast" useGeneratedKeys="true">
+    insert into "weather_forecast" (province, city, ad_code, 
+      report_time, "date", week, 
+      day_weather, night_weather, day_temp, 
+      night_temp, day_wind, night_wind, 
+      day_power, night_power)
+    values (#{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{adCode,jdbcType=VARCHAR}, 
+      #{reportTime,jdbcType=TIMESTAMP}, #{date,jdbcType=VARCHAR}, #{week,jdbcType=VARCHAR}, 
+      #{dayWeather,jdbcType=VARCHAR}, #{nightWeather,jdbcType=VARCHAR}, #{dayTemp,jdbcType=VARCHAR}, 
+      #{nightTemp,jdbcType=VARCHAR}, #{dayWind,jdbcType=VARCHAR}, #{nightWind,jdbcType=VARCHAR}, 
+      #{dayPower,jdbcType=VARCHAR}, #{nightPower,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.WeatherForecast" useGeneratedKeys="true">
+    insert into "weather_forecast"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="adCode != null">
+        ad_code,
+      </if>
+      <if test="reportTime != null">
+        report_time,
+      </if>
+      <if test="date != null">
+        "date",
+      </if>
+      <if test="week != null">
+        week,
+      </if>
+      <if test="dayWeather != null">
+        day_weather,
+      </if>
+      <if test="nightWeather != null">
+        night_weather,
+      </if>
+      <if test="dayTemp != null">
+        day_temp,
+      </if>
+      <if test="nightTemp != null">
+        night_temp,
+      </if>
+      <if test="dayWind != null">
+        day_wind,
+      </if>
+      <if test="nightWind != null">
+        night_wind,
+      </if>
+      <if test="dayPower != null">
+        day_power,
+      </if>
+      <if test="nightPower != null">
+        night_power,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="adCode != null">
+        #{adCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null">
+        #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="dayWeather != null">
+        #{dayWeather,jdbcType=VARCHAR},
+      </if>
+      <if test="nightWeather != null">
+        #{nightWeather,jdbcType=VARCHAR},
+      </if>
+      <if test="dayTemp != null">
+        #{dayTemp,jdbcType=VARCHAR},
+      </if>
+      <if test="nightTemp != null">
+        #{nightTemp,jdbcType=VARCHAR},
+      </if>
+      <if test="dayWind != null">
+        #{dayWind,jdbcType=VARCHAR},
+      </if>
+      <if test="nightWind != null">
+        #{nightWind,jdbcType=VARCHAR},
+      </if>
+      <if test="dayPower != null">
+        #{dayPower,jdbcType=VARCHAR},
+      </if>
+      <if test="nightPower != null">
+        #{nightPower,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.WeatherForecast">
+    update "weather_forecast"
+    <set>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="adCode != null">
+        ad_code = #{adCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null">
+        report_time = #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="date != null">
+        "date" = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null">
+        week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="dayWeather != null">
+        day_weather = #{dayWeather,jdbcType=VARCHAR},
+      </if>
+      <if test="nightWeather != null">
+        night_weather = #{nightWeather,jdbcType=VARCHAR},
+      </if>
+      <if test="dayTemp != null">
+        day_temp = #{dayTemp,jdbcType=VARCHAR},
+      </if>
+      <if test="nightTemp != null">
+        night_temp = #{nightTemp,jdbcType=VARCHAR},
+      </if>
+      <if test="dayWind != null">
+        day_wind = #{dayWind,jdbcType=VARCHAR},
+      </if>
+      <if test="nightWind != null">
+        night_wind = #{nightWind,jdbcType=VARCHAR},
+      </if>
+      <if test="dayPower != null">
+        day_power = #{dayPower,jdbcType=VARCHAR},
+      </if>
+      <if test="nightPower != null">
+        night_power = #{nightPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.WeatherForecast">
+    update "weather_forecast"
+    set province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      ad_code = #{adCode,jdbcType=VARCHAR},
+      report_time = #{reportTime,jdbcType=TIMESTAMP},
+      "date" = #{date,jdbcType=VARCHAR},
+      week = #{week,jdbcType=VARCHAR},
+      day_weather = #{dayWeather,jdbcType=VARCHAR},
+      night_weather = #{nightWeather,jdbcType=VARCHAR},
+      day_temp = #{dayTemp,jdbcType=VARCHAR},
+      night_temp = #{nightTemp,jdbcType=VARCHAR},
+      day_wind = #{dayWind,jdbcType=VARCHAR},
+      night_wind = #{nightWind,jdbcType=VARCHAR},
+      day_power = #{dayPower,jdbcType=VARCHAR},
+      night_power = #{nightPower,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

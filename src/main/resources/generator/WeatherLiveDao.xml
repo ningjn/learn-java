@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.WeatherLiveDao">
+  <resultMap id="BaseResultMap" type="generate.WeatherLive">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="ad_code" jdbcType="VARCHAR" property="adCode" />
+    <result column="weather" jdbcType="VARCHAR" property="weather" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="wind_direction" jdbcType="VARCHAR" property="windDirection" />
+    <result column="wind_power" jdbcType="VARCHAR" property="windPower" />
+    <result column="humidity" jdbcType="VARCHAR" property="humidity" />
+    <result column="report_time" jdbcType="TIMESTAMP" property="reportTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, province, city, ad_code, weather, temperature, wind_direction, wind_power, humidity, 
+    report_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "weather_live"
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from "weather_live"
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.WeatherLive" useGeneratedKeys="true">
+    insert into "weather_live" (province, city, ad_code, 
+      weather, temperature, wind_direction, 
+      wind_power, humidity, report_time
+      )
+    values (#{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{adCode,jdbcType=VARCHAR}, 
+      #{weather,jdbcType=VARCHAR}, #{temperature,jdbcType=VARCHAR}, #{windDirection,jdbcType=VARCHAR}, 
+      #{windPower,jdbcType=VARCHAR}, #{humidity,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.WeatherLive" useGeneratedKeys="true">
+    insert into "weather_live"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="adCode != null">
+        ad_code,
+      </if>
+      <if test="weather != null">
+        weather,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="windDirection != null">
+        wind_direction,
+      </if>
+      <if test="windPower != null">
+        wind_power,
+      </if>
+      <if test="humidity != null">
+        humidity,
+      </if>
+      <if test="reportTime != null">
+        report_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="adCode != null">
+        #{adCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weather != null">
+        #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="windDirection != null">
+        #{windDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="windPower != null">
+        #{windPower,jdbcType=VARCHAR},
+      </if>
+      <if test="humidity != null">
+        #{humidity,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null">
+        #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.WeatherLive">
+    update "weather_live"
+    <set>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="adCode != null">
+        ad_code = #{adCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weather != null">
+        weather = #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="windDirection != null">
+        wind_direction = #{windDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="windPower != null">
+        wind_power = #{windPower,jdbcType=VARCHAR},
+      </if>
+      <if test="humidity != null">
+        humidity = #{humidity,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null">
+        report_time = #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.WeatherLive">
+    update "weather_live"
+    set province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      ad_code = #{adCode,jdbcType=VARCHAR},
+      weather = #{weather,jdbcType=VARCHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      wind_direction = #{windDirection,jdbcType=VARCHAR},
+      wind_power = #{windPower,jdbcType=VARCHAR},
+      humidity = #{humidity,jdbcType=VARCHAR},
+      report_time = #{reportTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
