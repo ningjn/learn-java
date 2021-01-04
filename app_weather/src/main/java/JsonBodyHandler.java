@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 import java.util.function.Supplier;
 
 /**
- * @author Administrator
+ * @author ningth
  */
 public class JsonBodyHandler<W>
 	implements HttpResponse.BodyHandler<Supplier<W>> {
@@ -21,10 +21,10 @@ public class JsonBodyHandler<W>
 	public HttpResponse.BodySubscriber<Supplier<W>> apply(
 		HttpResponse.ResponseInfo responseInfo
 	) {
-		return asJson(wClass);
+		return asJSON(wClass);
 	}
 
-	public static <W> HttpResponse.BodySubscriber<Supplier<W>> asJson(
+	public static <W> HttpResponse.BodySubscriber<Supplier<W>> asJSON(
 		Class<W> targetType
 	) {
 		HttpResponse.BodySubscriber<InputStream> upstream = HttpResponse.BodySubscribers.ofInputStream();
