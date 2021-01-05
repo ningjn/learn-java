@@ -35,25 +35,4 @@ public class MyBatisUtil {
 		}
 		return sqlSessionFactory;
 	}
-	/*@Override
-	public List<LivesItem> selectLivesItem() {
-		SqlSessionFactory factory = MyBatisUtil.obtionSqlSessionFactory();
-		try (SqlSession sqlSession = factory.openSession()) {
-			LivesItemMapper livesItemMapper = sqlSession.getMapper(
-				LivesItemMapper.class
-			);
-			List<LivesItem> livesItems = livesItemMapper.selectLivesItem();
-			if (livesItems != null) {
-				System.out.println("ok");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}*/
-
-	/*public static void main(String[] args) {
-		System.out.println("hello");
-		MyBatisUtil myBatisUtil = new MyBatisUtil();
-	}*/
 }
