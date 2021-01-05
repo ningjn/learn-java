@@ -1,8 +1,8 @@
+import amap.ForecastsResponse;
+import amap.LivesResponse;
+import amap.MyWeather;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-/**
- * @author Administrator
- */
 public class App {
 
 	public static void main(String[] args) throws JsonProcessingException {

@@ -1,12 +1,9 @@
+package amap;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * @author ningth
- */
-@NoArgsConstructor
 @Data
 public class ForecastsItem {
 
@@ -29,22 +26,21 @@ public class ForecastsItem {
 	public String toString() {
 		return (
 			"ForecastsItem{" +
-			"province = '" +
+			"province='" +
 			province +
 			'\'' +
-			",casts = '" +
+			", casts=" +
 			casts +
-			'\'' +
-			",city = '" +
+			", city='" +
 			city +
 			'\'' +
-			",adcode = '" +
+			", adcode='" +
 			adcode +
 			'\'' +
-			",reporttime = '" +
+			", reporttime='" +
 			reporttime +
 			'\'' +
-			"}"
+			'}'
 		);
 	}
 }

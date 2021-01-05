@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 /**
  * @author ningth
  */
-public class MyBatisUtil implements LivesItemMapper {
+public class MyBatisUtil {
 
 	private static volatile SqlSessionFactory sqlSessionFactory;
 
@@ -35,8 +35,7 @@ public class MyBatisUtil implements LivesItemMapper {
 		}
 		return sqlSessionFactory;
 	}
-
-	@Override
+	/*@Override
 	public List<LivesItem> selectLivesItem() {
 		SqlSessionFactory factory = MyBatisUtil.obtionSqlSessionFactory();
 		try (SqlSession sqlSession = factory.openSession()) {
@@ -51,11 +50,10 @@ public class MyBatisUtil implements LivesItemMapper {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		System.out.println("hello");
 		MyBatisUtil myBatisUtil = new MyBatisUtil();
-		myBatisUtil.selectLivesItem();
-	}
+	}*/
 }

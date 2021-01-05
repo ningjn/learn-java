@@ -1,11 +1,8 @@
+package amap;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * @author ningth
- */
-@NoArgsConstructor
 @Data
 public class CastsItem {
 
@@ -43,37 +40,37 @@ public class CastsItem {
 	public String toString() {
 		return (
 			"CastsItem{" +
-			"date = '" +
+			"date='" +
 			date +
 			'\'' +
-			",dayweather = '" +
+			", dayweather='" +
 			dayweather +
 			'\'' +
-			",daywind = '" +
+			", daywind='" +
 			daywind +
 			'\'' +
-			",week = '" +
+			", week='" +
 			week +
 			'\'' +
-			",daypower = '" +
+			", daypower='" +
 			daypower +
 			'\'' +
-			",daytemp = '" +
+			", daytemp='" +
 			daytemp +
 			'\'' +
-			",nightwind = '" +
+			", nightwind='" +
 			nightwind +
 			'\'' +
-			",nighttemp = '" +
+			", nighttemp='" +
 			nighttemp +
 			'\'' +
-			",nightweather = '" +
+			", nightweather='" +
 			nightweather +
 			'\'' +
-			",nightpower = '" +
+			", nightpower='" +
 			nightpower +
 			'\'' +
-			"}"
+			'}'
 		);
 	}
 }

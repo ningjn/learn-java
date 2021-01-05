@@ -23,12 +23,15 @@
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
                 <property name="url" value="${url}"/>
+                <property name="user" value="${user}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <!-- 映射器 -->
     <mappers>
-        <mapper resource="LivesItem.xml"/>
+        <mapper resource="./generator/WeatherForecastDao.xml"/>
+        <mapper resource="./generator/WeatherLiveDao.xml"/>
     </mappers>
 </configuration>

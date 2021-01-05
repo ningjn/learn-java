@@ -1,17 +1,10 @@
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package amap;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * @author ningth
- */
-@NoArgsConstructor
 @Data
 public class LivesItem {
-
-	@JsonIgnore
-	private String id;
 
 	@JsonProperty("province")
 	private String province;

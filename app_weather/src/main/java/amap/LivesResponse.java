@@ -1,14 +1,14 @@
+package amap;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * @author ningth
- */
-@NoArgsConstructor
 @Data
-public class ForecastsResponse {
+public class LivesResponse {
+
+	@JsonProperty("lives")
+	private List<LivesItem> lives;
 
 	@JsonProperty("count")
 	private String count;
@@ -22,14 +22,14 @@ public class ForecastsResponse {
 	@JsonProperty("info")
 	private String info;
 
-	@JsonProperty("forecasts")
-	private List<ForecastsItem> forecasts;
-
 	@Override
 	public String toString() {
 		return (
-			"ForecastsResponse{" +
-			"count = '" +
+			"LivesResponse{" +
+			"lives = '" +
+			lives +
+			'\'' +
+			",count = '" +
 			count +
 			'\'' +
 			",infocode = '" +
@@ -40,9 +40,6 @@ public class ForecastsResponse {
 			'\'' +
 			",info = '" +
 			info +
-			'\'' +
-			",forecasts = '" +
-			forecasts +
 			'\'' +
 			"}"
 		);
