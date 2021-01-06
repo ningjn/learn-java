@@ -8,7 +8,7 @@ import java.time.Duration;
 /**
  * @author ningth
  */
-public class MyWeather {
+public class AmapWeather {
 
 	/**
 	 * 创建一个自定义的HTTP客户端对象
@@ -18,7 +18,7 @@ public class MyWeather {
 		.connectTimeout(Duration.ofSeconds(10))
 		.build();
 
-	public MyWeather() {}
+	public AmapWeather() {}
 
 	public LivesResponse getLivesWeather(String url) {
 		try {

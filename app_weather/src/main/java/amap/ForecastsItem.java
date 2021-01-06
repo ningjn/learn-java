@@ -1,6 +1,8 @@
 package amap;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.List;
 import lombok.Data;
 
@@ -20,7 +22,8 @@ public class ForecastsItem {
 	private String adcode;
 
 	@JsonProperty("reporttime")
-	private String reporttime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	private Date reporttime;
 
 	@Override
 	public String toString() {
