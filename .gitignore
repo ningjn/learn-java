@@ -85,3 +85,6 @@ package-lock.json
 
 # android 暂时屏蔽掉
 android
+
+log
+logs

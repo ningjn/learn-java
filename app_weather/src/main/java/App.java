@@ -2,6 +2,8 @@ import amap.ForecastsResponse;
 import amap.LivesResponse;
 import amap.MyWeather;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class App {
 
@@ -19,7 +21,8 @@ public class App {
 		LivesResponse livesResponse = myWeather.getLivesWeather(
 			String.format(livesFormat, key, cityCode)
 		);
-		if (livesResponse != null) {
+		if (livesResponse != null && "10000".equals(livesResponse.getInfocode())) {
+			System.out.println("实时天气入库处理");
 			System.out.println(livesResponse.getLives());
 		}
 
@@ -27,8 +30,21 @@ public class App {
 		ForecastsResponse forecastsResponse = myWeather.getForecastsWeather(
 			String.format(forecastFormat, key, cityCode)
 		);
-		if (forecastsResponse != null) {
+		if (
+			forecastsResponse != null &&
+			"10000".equals(forecastsResponse.getInfocode())
+		) {
+			System.out.println("预报天气入库处理");
 			System.out.println(forecastsResponse.getForecasts());
 		}
+
+		Logger logger = LoggerFactory.getLogger("root");
+		logger.info("Hello World");
+
+		logger.trace("trace");
+		logger.debug("debug");
+		logger.warn("warn");
+		logger.info("info");
+		logger.error("error");
 	}
 }
