@@ -23,13 +23,14 @@
     </properties>
 
     <dependencies>
-        <!--lombok-->
+        <!--lombok:begin-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
+        <!--lombok:end-->
 
         <!--jackson:begin-->
         <dependency>
@@ -47,7 +48,7 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.12.0</version>
         </dependency>
-        <!--json:end-->
+        <!--jackson:end-->
 
         <!-- database:begin -->
         <!-- mybatis -->

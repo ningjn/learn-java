@@ -1,5 +1,7 @@
 import amap.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import generate.WeatherForecast;
+import generate.WeatherForecastDao;
 import generate.WeatherLive;
 import generate.WeatherLiveDao;
 import org.apache.ibatis.session.SqlSession;
@@ -27,11 +29,10 @@ public class App {
 		String livesFormat =
 			"https://restapi.amap.com/v3/weather/weatherInfo?key=%s&extensions=base&city=%s";
 
-		SqlSessionFactory factory = MyBatisUtil.obtionSqlSessionFactory();
-
 		// 获取cityCode
 		cityCode = "110101";
 
+		SqlSessionFactory factory = MyBatisUtil.obtionSqlSessionFactory();
 		try (SqlSession sqlSession = factory.openSession()) {
 			WeatherLiveDao weatherLiveDao = sqlSession.getMapper(
 				WeatherLiveDao.class
@@ -62,9 +63,9 @@ public class App {
 					logger.debug(String.valueOf(weatherLive));
 					weatherLiveDao.insert(weatherLive);
 				}
-			}
 
-			sqlSession.close();
+				sqlSession.commit();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -86,24 +87,51 @@ public class App {
 		// 获取cityCode
 		cityCode = "110101";
 
-		// 获取实时天气
-		ForecastsResponse forecastsResponse = myWeather.getForecastsWeather(
-			String.format(forecastFormat, key, cityCode)
-		);
-		if (
-			forecastsResponse != null &&
-			"10000".equals(forecastsResponse.getInfocode())
-		) {
-			System.out.println("预报天气入库处理");
-			for (ForecastsItem item : forecastsResponse.getForecasts()) {
-				System.out.println(item.getProvince());
-				System.out.println(item.getCity());
-				System.out.println(item.getAdcode());
-				System.out.println(item.getReporttime());
-				for (CastsItem cast : item.getCasts()) {
-					System.out.println(cast);
+		SqlSessionFactory factory = MyBatisUtil.obtionSqlSessionFactory();
+		try (SqlSession sqlSession = factory.openSession()) {
+			WeatherForecastDao weatherForecastDao = sqlSession.getMapper(
+				WeatherForecastDao.class
+			);
+
+			// 获取实时天气
+			ForecastsResponse forecastsResponse = myWeather.getForecastsWeather(
+				String.format(forecastFormat, key, cityCode)
+			);
+
+			// 信息入库
+			if (
+				forecastsResponse != null &&
+				"10000".equals(forecastsResponse.getInfocode())
+			) {
+				System.out.println("预报天气入库处理");
+				for (ForecastsItem item : forecastsResponse.getForecasts()) {
+					for (CastsItem castsItem : item.getCasts()) {
+						WeatherForecast weatherForecast = new WeatherForecast();
+						weatherForecast.setProvince(item.getProvince());
+						weatherForecast.setCity(item.getCity());
+						weatherForecast.setAdCode(item.getAdcode());
+						weatherForecast.setReportTime(item.getReporttime());
+
+						weatherForecast.setDate(castsItem.getDate());
+						weatherForecast.setWeek(castsItem.getWeek());
+						weatherForecast.setDayWeather(castsItem.getDayweather());
+						weatherForecast.setNightWeather(castsItem.getNightweather());
+						weatherForecast.setDayTemp(castsItem.getDaytemp());
+						weatherForecast.setNightTemp(castsItem.getNighttemp());
+						weatherForecast.setDayWind(castsItem.getDaywind());
+						weatherForecast.setNightWind(castsItem.getNightwind());
+						weatherForecast.setDayPower(castsItem.getDaypower());
+						weatherForecast.setNightPower(castsItem.getNightpower());
+
+						logger.debug(String.valueOf(weatherForecast));
+						weatherForecastDao.insert(weatherForecast);
+					}
 				}
+
+				sqlSession.commit();
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
