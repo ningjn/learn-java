@@ -33,5 +33,6 @@
     <mappers>
         <mapper resource="./generator/WeatherForecastDao.xml"/>
         <mapper resource="./generator/WeatherLiveDao.xml"/>
+        <mapper resource="./generator/WeatherAdCodeDao.xml"/>
     </mappers>
 </configuration>

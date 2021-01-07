@@ -1,6 +1,7 @@
 package generate;
 
 import generate.WeatherAdCode;
+import java.util.List;
 
 public interface WeatherAdCodeDao {
 	int deleteByPrimaryKey(String adCode);
@@ -10,6 +11,8 @@ public interface WeatherAdCodeDao {
 	int insertSelective(WeatherAdCode record);
 
 	WeatherAdCode selectByPrimaryKey(String adCode);
+
+	List<WeatherAdCode> selectList();
 
 	int updateByPrimaryKeySelective(WeatherAdCode record);
 
